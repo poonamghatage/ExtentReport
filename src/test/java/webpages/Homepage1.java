@@ -62,8 +62,8 @@ public class Homepage1 extends SeleniumCommon {
     public static void draft_move_into_inbox() {
         SeleniumCommon.waitForSecond(5);
         driver.findElement(By.xpath("//a[@href=\"https://mail.google.com/mail/u/0/#drafts\"]")).click();
-        SeleniumCommon.waitForSecond(5);
-        driver.findElement(By.xpath("(//tr[@class=\"zA yO\"]//td[@class=\"oZ-x3 xY\"] //div[@class=\"oZ-jc T-Jo J-J5-Ji\"])[1]")).click();
+        SeleniumCommon.waitForSecond(10);
+        driver.findElement(By.xpath("(//tbody//tr[1]//td[2])[3]//div[@class=\"oZ-jc T-Jo J-J5-Ji \"]")).click();
         SeleniumCommon.waitForSecond(5);
         driver.findElement(By.xpath("//div[@aria-label=\"Move to Inbox\"]")).click();
         SeleniumCommon.waitForSecond(5);

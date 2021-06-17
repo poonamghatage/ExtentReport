@@ -111,13 +111,4 @@ public class Homepage extends SeleniumCommon {
         WebElement element=driver.findElement(By.xpath("//*[@id=\":1x\"]/div[4]"));
         SeleniumCommon.verify_image(element);
     }
-
-
-
-
-
-
-
-
-
 }

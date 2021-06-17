@@ -22,12 +22,18 @@ public class LoginTest {
         SeleniumCommon.openWebSite();
 
     }
-    @Test(description = "verified valid user can able to login or not")
+    @Test(description = "verified valid user can able to login or not",timeOut = 120000)
     public void Login_Testcase1() throws IOException {
        Loginpage.checktitle();
        Loginpage.login();
        SeleniumCommon.waitForSecond(5);
+       System.out.println("First Test Case Completed");
+
+
     }
+
+
+
 
 
 }
