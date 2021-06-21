@@ -5,8 +5,14 @@ import Reusablecomponent.Log;
 import Reusablecomponent.SeleniumCommon;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class Homepage1 extends SeleniumCommon {
 
@@ -26,13 +32,7 @@ public class Homepage1 extends SeleniumCommon {
 
         }catch (Exception e)
         {}
-       /* driver.findElement(By.xpath("//span[@class=\\\"nU false\\\"]//*[contains(text(),'New meeting')]")).click();
-        ArrayList<String> allTabs = new ArrayList<>(driver.getWindowHandles());
-        SeleniumCommon.waitForSecond(3);
-        Log.info("Open link in new tab");
-        ExtentTestManager.reporterLog("Link Opened in new tab");
-        driver.switchTo().window(allTabs.get(1));
-        String ActualTitle1 = driver.getTitle(); */
+
 
 
         ExtentTestManager.reporterLog("Clicked On New meeting ");
@@ -58,16 +58,58 @@ public class Homepage1 extends SeleniumCommon {
 
     }
 
-
-    public static void draft_move_into_inbox() {
-        SeleniumCommon.waitForSecond(5);
-        driver.findElement(By.xpath("//a[@href=\"https://mail.google.com/mail/u/0/#drafts\"]")).click();
+    public static void chat(){
         SeleniumCommon.waitForSecond(10);
-        driver.findElement(By.xpath("(//tbody//tr[1]//td[2])[3]//div[@class=\"oZ-jc T-Jo J-J5-Ji \"]")).click();
+        driver.findElement(By.xpath("//a[@aria-label=\"Google apps\"]")).click();
+        Log.info("Clicked on Google apps");
         SeleniumCommon.waitForSecond(5);
-        driver.findElement(By.xpath("//div[@aria-label=\"Move to Inbox\"]")).click();
+        //driver.findElement(By.xpath("//*[@id=\"yDmH0d\"]/c-wiz/div/div/c-wiz/div/div/ul[1]/li[9]/a/span")).sendKeys(Keys.CONTROL + "n");
+        driver.findElement(By.xpath("//*[contains(text(),\"Chat\")]")).sendKeys(Keys.CONTROL + "n");
+        Log.info("Chat Window opened in new tab");
+
+        ArrayList<String> allTabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(allTabs.get(1));
+
+
+    }
+
+
+    public static  void draft_move_into_inbox() {
+        ExtentTestManager.reporterLog("Invalid Test case");
+         /*
+        SeleniumCommon.waitForSecond(10);
+        driver.findElement(By.xpath("//a[@href=\"https://mail.google.com/mail/u/0/#drafts\"]")).click();
         SeleniumCommon.waitForSecond(5);
-        driver.findElement(By.xpath("//span[@class=\"nU n1\"] //*[contains(text(),'Inbox')]")).click();
+        Log.info("Clicked on Drafts");
+        SeleniumCommon.waitForSecond(30);
+
+
+        Actions a = new Actions(driver);
+        a.moveToElement(driver.findElement(By.xpath("//img[@class=\"gb_Ca gbii\"]")));
+        a.contextClick().build().perform();
+
+      WebElement element= driver.findElement(By.xpath("//tr[@class ='zA yO'] // div[@class=\"oZ-jc T-Jo J-J5-Ji \"] //div"));
+        SeleniumCommon.waitForSecond(5);
+        Log.info("Return:" +element.isDisplayed());*/
+        /*SeleniumCommon.IsElementVisible(element);
+        Log.info("Element is visible");*/
+
+
+        /*SeleniumCommon.waitForSecond(5);
+        int timeout = 50;
+        WebDriverWait t = new WebDriverWait(driver, timeout);
+        t.until(ExpectedConditions.visibilityOf(element));
+        Log.info("Elment is visible");
+        t.until(ExpectedConditions.elementToBeClickable(element));
+        Log.info("Element is clickable");
+        element.click();
+        SeleniumCommon.waitForSecond(5);
+        Log.info("Email Selected");*/
+        /*driver.findElement(By.xpath("//div[@aria-label=\"Move to Inbox\"]")).click();
+        SeleniumCommon.waitForSecond(5);
+        driver.findElement(By.xpath("//span[@class=\"nU n1\"] //*[contains(text(),'Inbox')]")).click();*/
+
+
 
 
     }

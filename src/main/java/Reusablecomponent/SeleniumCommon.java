@@ -357,7 +357,7 @@ public class SeleniumCommon {
     }
 
     public static void IsElementVisible(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 100);
         wait.until(ExpectedConditions.visibilityOf(element));
 
     }
