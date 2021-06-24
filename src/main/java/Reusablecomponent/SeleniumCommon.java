@@ -301,7 +301,7 @@ public class SeleniumCommon {
 
     //Explicit wait method to wait till visibility of element
     public static void waitForWebElement(WebElement element){
-        WebDriverWait w = new WebDriverWait(driver,40);
+        WebDriverWait w = new WebDriverWait(driver,30);
         w.until(ExpectedConditions.visibilityOf(element));
     }
 

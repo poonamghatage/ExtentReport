@@ -5,7 +5,7 @@ import webpages.Homepage1;
 
 public class Homepage1test {
 
-    @Test(description = "Verified newm metting link shared or not", enabled=false)
+    @Test(description = "Verified new metting link shared or not", enabled=false)
     public void Homepage1_Testcase1(){
         Homepage1.new_meeting();
 
@@ -25,7 +25,7 @@ public class Homepage1test {
 
 
 
-    @Test(description = "verified Logout" ,enabled = false)
+    @Test(description = "verified Logout",enabled = false)
     public void Homepage1_Testcase4(){
         Homepage1.LogOut();
         }

@@ -12,6 +12,7 @@ import Reusablecomponent.SeleniumCommon;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -37,6 +38,9 @@ public class Loginpage extends SeleniumCommon {
 
     public Loginpage() throws IOException  // Constructor to initialize Web elements using Page factory
     {
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
         driver = SeleniumCommon.getDriverInstance();
         ExtentTestManager.reporterLog("Chrome Invoked");
         PageFactory.initElements(driver, this);
