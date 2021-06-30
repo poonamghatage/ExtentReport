@@ -9,36 +9,35 @@ import java.awt.*;
 public class Homepagetest {
 
 
-    @Test(description = "Verify Correct User Logged In or Not")
+    @Test(priority = 1,description = "Verify Correct User Logged In or Not")
     public void HomePage_Testcase1(){
         SeleniumCommon.waitForSecond(5);
         Homepage.verifyUser();
     }
 
-    @Test(description = "Verified user can abe to search email ID")
+    @Test(priority = 2,description = "Verified user can abe to search email ID")
 
-    public void
-    HomePage_Testcase2() throws AWTException {
+    public void HomePage_Testcase2() throws AWTException {
         Homepage.searchByID();
     }
 
-    @Test(description = "verified user can able to open searched emailId")
+    @Test(priority = 3,description = "verified user can able to open searched emailId")
     public void Homepage_Testcase3() throws AWTException {
         Homepage.checkMail();
     }
 
 
-   @Test(description = "verified icon is displayed or not")
+   @Test(priority = 4,description = "verified icon is displayed or not")
     public void Homepage_Testcase4() throws AWTException {
     Homepage.verifyicon();
     }
 
-    @Test(description = "verified tooltip is displayed as per expectation or not")
+    @Test(priority = 5,description = "verified tooltip is displayed as per expectation or not")
     public void Homepage_Testcase5() throws AWTException {
         Homepage.veriftooltip();
     }
 
-    @Test(description = "verified dropdown")
+    @Test(priority = 6,description = "verified dropdown")
     public void Homepage_Testcase6() throws AWTException {
    Homepage.verifydropdown();
     }

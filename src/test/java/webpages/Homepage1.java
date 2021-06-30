@@ -56,67 +56,86 @@ public class Homepage1 extends SeleniumCommon {
 
         ArrayList<String> allTabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(allTabs.get(0));
-        //driver.navigate().back();
+
 
     }
 
     public static void chat(){
         driver.findElement(By.xpath("//a[@aria-label=\"Google apps\"]")).click();
         Log.info("Clicked on Google apps");
-        SeleniumCommon.waitForSecond(10);
-        driver.switchTo().frame(1);
-        System.out.println("Switched to different frame");
-        SeleniumCommon.waitForSecond(15);
+        ExtentTestManager.reporterLog("Clicked on Google apps");
+        SeleniumCommon.waitForSecond(5);
 
-        WebElement w1=driver.findElement(By.xpath("//*[contains(text(),\"Chat\")]"));
-        SeleniumCommon.waitForWebElement(w1);
-        SeleniumCommon.ClickOnWebElement(w1);
-        SeleniumCommon.waitForSecond(30);
+        //switchtoframe by index
+        SeleniumCommon.switchtoframebyindex(1);
+        SeleniumCommon.waitForSecond(5);
 
+
+        driver.findElement(By.xpath("//div[@class=\"CgwTDb\"] //span[@pid=\"385\"]")).click();
+        ExtentTestManager.reporterLog("Clicked On Chat");
+        SeleniumCommon.waitForSecond(25);
         for(String winHandle:driver.getWindowHandles()){
             driver.switchTo().window(winHandle);
+            Log.info("Return:" +winHandle);
         }
         driver.findElement(By.xpath("//*[contains(text(),'Not now')]")).click();
         Log.info("Clicked on Not now");
-        SeleniumCommon.waitForSecond(5);
+        ExtentTestManager.reporterLog("Clicked On Not now");
+        SeleniumCommon.waitForSecond(2);
         driver.findElement(By.xpath("//div[@aria-label=\"Start a chat\"]")).click();
-        SeleniumCommon.waitForSecond(5);
+        SeleniumCommon.waitForSecond(3);
         Log.info("Clicked on start a chat");
-        driver.switchTo().frame("talk_flyout");
-        Log.info("Switched to iframe");
-        SeleniumCommon.waitForSecond(5);
+        ExtentTestManager.reporterLog("Clicked on start a chat");
+
+
+        //switchtoframebyname
+        SeleniumCommon.switchtoframebyidorname("talk_flyout");
+        SeleniumCommon.waitForSecond(2);
+
+
+
+
+
         driver.findElement(By.xpath("//input[@class=\"whsOnd zHQkBf\"]")).sendKeys("poonamghatage21@gmail.com");
-        SeleniumCommon.waitForSecond(10);
+        SeleniumCommon.waitForSecond(5);
         Log.info("Sent Receiver emailId ");
+        ExtentTestManager.reporterLog("Entered Email Of Receiver: poonamghatage21@gmail.com");
         driver.findElement(By.xpath("//span[@class=\"njhDLd\"]")).click();
-        Log.info("Opened in new tab");
-        SeleniumCommon.waitForSecond(10);
-        Log.info("Clicked on trunal.thakre@gmail.com from suggestion");
-        Log.info("Current Title:"+driver.getTitle());
-        Log.info("Current URL:"+driver.getCurrentUrl());
+        SeleniumCommon.waitForSecond(5);
+        Log.info("Clicked on poonamghatage21@gmail.com from suggestion");
+        ExtentTestManager.reporterLog("Clicked on poonamghatage21@gmail.com from suggestion");
+
 
         String currenturl=driver.getCurrentUrl();
-        SeleniumCommon.waitForSecond(5);
-        Log.info("Opened new tab");
+        ExtentTestManager.reporterLog("Get Current URL");
+        SeleniumCommon.waitForSecond(2);
+
         driver.get(currenturl);
+        Log.info("Opened new tab");
+        ExtentTestManager.reporterLog("URL Openend Again ");
         SeleniumCommon.waitForSecond(15);
         driver.switchTo().frame("hostFrame1");
         Log.info("Switched to required frame ");
         SeleniumCommon.waitForSecond(5);
-        driver.findElement(By.xpath("//div[@aria-label=\"Message poonamghatage21@gmail.com. History is on.\"]")).sendKeys("Hi,Good Evening");
+        WebElement elem=driver.findElement(By.xpath("//div[@aria-label=\"Message poonamghatage21@gmail.com. History is on.\"]"));
+        elem.sendKeys("Hi,Good Evening");
+        ExtentTestManager.reporterLog("Entered meesage");
+
         SeleniumCommon.waitForSecond(5);
-        WebElement elem = driver.findElement(By.xpath("//div[contains(text(),\"Hi,Good Evening\")]"));
+       // WebElement elem = driver.findElement(By.xpath("//div[contains(text(),\"Hi,Good Evening\")]"));
         elem.sendKeys(Keys.ENTER);
-        Log.info("Entered message ");
-        SeleniumCommon.waitForSecond(5);
+        Log.info("Pressed Enter Key ");
+        ExtentTestManager.reporterLog("Pressed Enter Key");
+        SeleniumCommon.waitForSecond(2);
 
         for(String winHandle:driver.getWindowHandles()){
             driver.switchTo().window(winHandle);
         }
         driver.findElement(By.xpath("//button[contains(text(),\"No, thanks\")]")).click();
         Log.info("Clicked on No,thanks");
-        SeleniumCommon.waitForSecond(5);
-        Log.info("Presses enter key");
+        ExtentTestManager.reporterLog("Clicked On No,thanks");
+        //SeleniumCommon.waitForSecond(5);
+       // Log.info("Presses enter key");
 
     }
 

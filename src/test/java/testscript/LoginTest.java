@@ -1,6 +1,7 @@
 package testscript;
 
 
+import Reusablecomponent.ExtentTestManager;
 import Reusablecomponent.SeleniumCommon;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -22,12 +23,15 @@ public class LoginTest {
         SeleniumCommon.openWebSite();
 
     }
-    @Test(description = "verified valid user can able to login or not",timeOut = 120000)
-    public void Login_Testcase1() throws IOException {
-       Loginpage.checktitle();
-       Loginpage.login();
-       SeleniumCommon.waitForSecond(5);
-       System.out.println("First Test Case Completed");
+    @Test(priority = 1,description = "verified valid user can able to login or not",timeOut = 120000)
+    public void Login_Testcase1() throws IOException, AWTException {
+
+        Loginpage.checktitle();
+        ExtentTestManager.reporterLog("First Checked Title");
+        Loginpage.login();
+        ExtentTestManager.reporterLog("Logged in successfully");
+        SeleniumCommon.waitForSecond(5);
+        System.out.println("First Test Case Completed");
 
 
     }

@@ -498,14 +498,6 @@ public class SeleniumCommon {
 
 
     public  static  void  check_dropdown(WebElement w1,WebElement w2){
-      /*  SeleniumCommon.waitForSecond(5);
-        SeleniumCommon.ClickOnWebElement(w1);
-        SeleniumCommon.waitForSecond(5);
-        SeleniumCommon.ClickOnWebElement(w2);
-*/
-
-
-
         SeleniumCommon.waitForSecond(10);
         SeleniumCommon.ClickOnWebElement(w1);
         //ExtentTestManager.reporterLog("Click On Menu");
@@ -513,7 +505,7 @@ public class SeleniumCommon {
          List<WebElement> allOptions = driver.findElements(By.xpath("//div[@class='J-N-Jz']"));
         SeleniumCommon.waitForSecond(10);
         System.out.println(allOptions.size());
-        ExtentTestManager.reporterLog("Count Number Of Options");
+        ExtentTestManager.reporterLog("Number of Item In List:" +allOptions.size());
 
         for(int i = 0; i<=allOptions.size()-1; i++) {
         if(allOptions.get(i).getText().contains("Unread")) {
@@ -541,10 +533,11 @@ public class SeleniumCommon {
         System.out.println("Actual Title of Tool Tip  "+actualTooltip);
         if(actualTooltip.equals(expectedTooltip)) {
             System.out.println("Test Case Passed");
-            ExtentTestManager.reporterLog("Compared:Actual text matches with expected text");
+            ExtentTestManager.reporterLog("Compared:Actual text matched with expected text");
         }
 
         else{
+            ExtentTestManager.reporterLog("Compared:Actual text not matched with expected text");
             Assert.fail();
             ExtentTestManager.reporterLog("Fail");
         }
@@ -617,6 +610,55 @@ public class SeleniumCommon {
         w1.clear();
 
     }
+
+    //switchtoframe by index
+    public  static void switchtoframebyindex(int index)
+    {
+        driver.switchTo().frame(index);
+        Log.info("Switched to frame");
+    }
+
+
+    //switchtoframe by id or name
+    public  static void switchtoframebyidorname(String idorname)
+    {
+        driver.switchTo().frame(idorname);
+        Log.info("Switched to frame");
+    }
+
+
+    //switch to the particular tab by getting index
+    public static void switchtodifferenttab(int index){
+        ArrayList<String> allTabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(allTabs.get(index));
+    }
+
+
+
+
+
+
+
+    //verify  alert is present or not
+    public static void alertispresentornot(){
+   try {
+
+        WebDriverWait wait=new WebDriverWait(driver,30);
+        if(wait.until(ExpectedConditions.alertIsPresent())==null)
+        {
+            System.out.println("Alert Not Present");
+            Log.info("Alert Not Present");
+
+        }
+        else {
+            driver.switchTo().alert().accept();
+            driver.switchTo().alert().dismiss();
+        }
+    }catch(NoAlertPresentException a){
+       a.printStackTrace();
+    }
+
+}
 
 
 }

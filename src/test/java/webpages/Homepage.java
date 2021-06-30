@@ -30,8 +30,9 @@ public class Homepage extends SeleniumCommon {
             ExtentTestManager.reporterLog("User Verified Successfully");
         } else {
 
-            Assert.fail();
             ExtentTestManager.reporterLog("Compared:current Title Not Matches with Expected Title");
+            Assert.fail();
+           // ExtentTestManager.reporterLog("Compared:current Title Not Matches with Expected Title");
             Log.info("user logged in  is matching");
         }
 
@@ -42,11 +43,11 @@ public class Homepage extends SeleniumCommon {
 
     public static void searchByID() throws AWTException {
         driver.findElement(By.xpath("//input[@placeholder=\"Search mail\"]")).sendKeys("poonamghatage21@gmail.com");
-        ExtentTestManager.reporterLog("Entered EmailId For search:poonamghatage21@gmail.com");
+        ExtentTestManager.reporterLog("Entered EmailId For search: poonamghatage21@gmail.com");
         SeleniumCommon.waitForSecond(5);
-        Log.info("Search by Id poonamghatage21@gmail.com");
+        Log.info("Searched by Id poonamghatage21@gmail.com");
         SeleniumCommon.ClickEnter();
-        ExtentTestManager.reporterLog("Click On Enter");
+        ExtentTestManager.reporterLog("Clicked On Enter");
         SeleniumCommon.waitForSecond(5);
 
 
@@ -54,7 +55,7 @@ public class Homepage extends SeleniumCommon {
 
     public static void checkMail() throws AWTException {
         // SeleniumCommon.ClickEnter();
-        SeleniumCommon.waitForSecond(10);
+        SeleniumCommon.waitForSecond(5);
         SeleniumCommon.findElement("xpath", "(//div[@class=\"au\"] //div[contains(text(),\"Inbox\")])[2]").click();
         ExtentTestManager.reporterLog("Clicked on Email");
         SeleniumCommon.waitForSecond(5);
@@ -79,6 +80,8 @@ public class Homepage extends SeleniumCommon {
             ExtentTestManager.reporterLog("Link Not Matched");
             Log.info("link is not matching");
         }
+        SeleniumCommon.waitForSecond(5);
+        driver.close();
         driver.switchTo().window(allTabs.get(0));
         ExtentTestManager.reporterLog("Navigated to First Tab");
         SeleniumCommon.waitForSecond(5);

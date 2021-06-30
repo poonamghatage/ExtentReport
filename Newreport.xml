@@ -10,10 +10,11 @@
         <classes>
 
             <class name="testscript.LoginTest"/>
-           <!-- <class name="testscript.Homepagetest"/>-->
-            <class name="testscript.Homepage1test"/>
+            <!-- <class name="testscript.Homepagetest"/>-->
+            <!-- <class name="testscript.Homepage1test"/>-->
+           <class name="testscript.Driver_Test"></class>
 
-        </classes>
+           </classes>
 
-    </test>
-</suite>
+       </test>
+   </suite>
