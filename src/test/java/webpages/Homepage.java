@@ -4,6 +4,7 @@ import Reusablecomponent.ExtentTestManager;
 import Reusablecomponent.Log;
 import Reusablecomponent.SeleniumCommon;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,10 +16,8 @@ import java.util.ArrayList;
 public class Homepage extends SeleniumCommon {
 
     public static void verifyUser() {
-        SeleniumCommon.waitForSecond(10);
-        String ActualTitle=driver.getTitle();
-      //  WebElement ActualTitle = driver.findElement(By.xpath("//*[contains(text(),'Inbox (1) - ghatagepoonam5@gmail.com - Gmail')]"));
 
+        String ActualTitle=driver.getTitle();
         Log.info("Actual title:" +ActualTitle);
         String ExceptedTitle = "Inbox (1) - ghatagepoonam5@gmail.com - Gmail";
         ExtentTestManager.reporterLog("Expected Title:" + ExceptedTitle);
@@ -33,41 +32,31 @@ public class Homepage extends SeleniumCommon {
             ExtentTestManager.reporterLog("Compared:current Title Not Matches with Expected Title");
             Assert.fail();
            // ExtentTestManager.reporterLog("Compared:current Title Not Matches with Expected Title");
-            Log.info("user logged in  is matching");
+            Log.info("user logged in is matching");
         }
 
     }
 
-
-
-
     public static void searchByID() throws AWTException {
-        driver.findElement(By.xpath("//input[@placeholder=\"Search mail\"]")).sendKeys("poonamghatage21@gmail.com");
+        WebElement w1= driver.findElement(By.xpath("//input[@placeholder=\"Search mail\"]"));
+        w1.sendKeys("poonamghatage21@gmail.com");
+        w1.sendKeys(Keys.ENTER);
         ExtentTestManager.reporterLog("Entered EmailId For search: poonamghatage21@gmail.com");
-        SeleniumCommon.waitForSecond(5);
         Log.info("Searched by Id poonamghatage21@gmail.com");
-        SeleniumCommon.ClickEnter();
         ExtentTestManager.reporterLog("Clicked On Enter");
-        SeleniumCommon.waitForSecond(5);
-
-
     }
 
     public static void checkMail() throws AWTException {
-        // SeleniumCommon.ClickEnter();
-        SeleniumCommon.waitForSecond(5);
-        SeleniumCommon.findElement("xpath", "(//div[@class=\"au\"] //div[contains(text(),\"Inbox\")])[2]").click();
+
+        SeleniumCommon.waitForSecond(2);
+        SeleniumCommon.findElement("xpath", "//div[@class=\"au\"] //div[@class=\"av\"]").click();
         ExtentTestManager.reporterLog("Clicked on Email");
-        SeleniumCommon.waitForSecond(5);
+        SeleniumCommon.waitForSecond(3);
         SeleniumCommon.findElement("xpath", "//a[@href=\"https://www.flickonclick.com/checkout-these-exciting-latest-offers-from-jiomart/\"]").click();
         ExtentTestManager.reporterLog("Clicked on link available in the mail");
         Log.info("Click on link available in the mail");
 
-        ArrayList<String> allTabs = new ArrayList<>(driver.getWindowHandles());
-        SeleniumCommon.waitForSecond(3);
-        Log.info("Open link in new tab");
-        ExtentTestManager.reporterLog("Link Opened in new tab");
-        driver.switchTo().window(allTabs.get(1));
+       SeleniumCommon.switchtodifferenttab(1);
         String ActualTitle1 = driver.getTitle();
         ExtentTestManager.reporterLog("ActualTitle"+ActualTitle1);
         String ExceptedTitle1 = "Checkout These Exciting Latest Offers From JioMart";
@@ -82,21 +71,22 @@ public class Homepage extends SeleniumCommon {
         }
         SeleniumCommon.waitForSecond(5);
         driver.close();
-        driver.switchTo().window(allTabs.get(0));
+        SeleniumCommon.switchtodifferenttab(0);
+       // driver.switchTo().window(allTabs.get(0));
         ExtentTestManager.reporterLog("Navigated to First Tab");
-        SeleniumCommon.waitForSecond(5);
+        SeleniumCommon.waitForSecond(2);
         driver.findElement(By.xpath("//span[@class=\"nU n1\"] //*[contains(text(),'Inbox')]")).click();
         ExtentTestManager.reporterLog("Clicked on Inbox");
-        SeleniumCommon.waitForSecond(5);
+
     }
 
 
     public static void verifydropdown() {
 
         //xpath=parent+space+child
-        SeleniumCommon.waitForSecond(5);
+
         WebElement w1=driver.findElement(By.xpath("//div[@class=\"J-J5-Ji J-JN-M-I-Jm\"] //div[@class=\"G-asx T-I-J3 J-J5-Ji\"]"));
-        SeleniumCommon.waitForSecond(5);
+        SeleniumCommon.waitForSecond(2);
         WebElement w2=driver.findElement(By.xpath("//div[@selector='unread']"));
         SeleniumCommon.check_dropdown(w1,w2);
 
@@ -111,7 +101,7 @@ public class Homepage extends SeleniumCommon {
 
 
     public static void verifyicon() {
-        WebElement element=driver.findElement(By.xpath("//*[@id=\":1x\"]/div[4]"));
+        WebElement element=driver.findElement(By.xpath("//div[@class=\"aKp aKe-aLf\"]"));
         SeleniumCommon.verify_image(element);
     }
 }

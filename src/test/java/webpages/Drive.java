@@ -4,11 +4,12 @@ import Reusablecomponent.ExtentTestManager;
 import Reusablecomponent.Log;
 import Reusablecomponent.SeleniumCommon;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class Driver extends SeleniumCommon {
+public class Drive extends SeleniumCommon {
 
 
 
@@ -25,7 +26,7 @@ public class Driver extends SeleniumCommon {
         System.out.println("Switched to different frame");
         SeleniumCommon.waitForSecond(5);
         driver.findElement(By.xpath("//div[@class=\"CgwTDb\"] //span[@pid=\"49\"]")).click();
-        ExtentTestManager.reporterLog("Clicked On Driver");
+        ExtentTestManager.reporterLog("Clicked On Drive");
 
         //switchtodifferenttab by passing index
         SeleniumCommon.switchtodifferenttab(1);
@@ -41,4 +42,34 @@ public class Driver extends SeleniumCommon {
 
     }
 
+    public static void translate() {
+        driver.findElement(By.xpath("//a[@aria-label=\"Google apps\"]")).click();
+        Log.info("Clicked on Google apps");
+        ExtentTestManager.reporterLog("Clicked on Google apps");
+        SeleniumCommon.waitForSecond(3);
+
+        //switchto frame by passing index
+        SeleniumCommon.switchtoframebyindex(1);
+
+
+        System.out.println("Switched to different frame");
+        SeleniumCommon.waitForSecond(5);
+
+        //scroll down
+       // SeleniumCommon.scroll_down(10000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        //js.executeScript("window.scrollBy(0,1000)");
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        Log.info("Scrolled down");
+
+
+
+
+
+
+
+
+
+
+    }
 }

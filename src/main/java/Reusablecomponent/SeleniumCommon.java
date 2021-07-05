@@ -640,6 +640,7 @@ public class SeleniumCommon {
 
 
     //verify  alert is present or not
+    //not used........
     public static void alertispresentornot(){
    try {
 
@@ -659,6 +660,34 @@ public class SeleniumCommon {
     }
 
 }
+
+//switch to window
+    public static void switchtowindow(){
+        try{
+            SeleniumCommon.waitForSecond(5);
+            for(String winHandle:driver.getWindowHandles()){
+                driver.switchTo().window(winHandle);
+                Log.info("Switched to window");
+                Log.info("Return:" +winHandle);
+            }
+        }catch (Exception e)
+        {
+        }
+    }
+
+   //maximize window
+   public  static  void maximizewindow(){
+       driver.manage().window().maximize();
+   }
+
+   //scroll down
+    public static void scroll_down(int vertical)
+    {
+        int v=vertical;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,v)");
+        Log.info("Scrollled Down");
+    }
 
 
 }
