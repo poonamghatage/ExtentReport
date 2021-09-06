@@ -2,27 +2,32 @@ package webpages;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.List;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.List;
+
+import net.bytebuddy.asm.Advice;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 //import Reusablecomponent.ExtentTestManager;
 import Reusablecomponent.ExtentTestManager;
-import Reusablecomponent.ExtentManager;
-import Reusablecomponent.Listener;
 import Reusablecomponent.Log;
 import Reusablecomponent.PropertiesReading;
 import Reusablecomponent.SeleniumCommon;
 
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class Loginpage extends SeleniumCommon {
 
@@ -47,7 +52,7 @@ public class Loginpage extends SeleniumCommon {
     {
 
         driver = SeleniumCommon.getDriverInstance();
-        Log.info("Ithe hot ahe");
+        Log.info("yes");
         ExtentTestManager.reporterLog("Chrome Invoked");
         PageFactory.initElements(driver, this);
         ExtentTestManager.reporterLog("URL Opened");
@@ -113,10 +118,106 @@ public class Loginpage extends SeleniumCommon {
     }
 
 
+    public static void BrokenLinks() throws IOException {
 
 
+           //String homePage = "http://www.zlti.com";
+        String webURL = PropertiesReading.getProperty("Config","baseURL1");
+           HttpURLConnection huc = null;
+            int respCode = 200;
+            List<WebElement> links = driver.findElements(By.tagName("a"));
+            Iterator<WebElement> it = links.iterator();
+            while(it.hasNext()){
+                String url = it.next().getAttribute("href");
+                System.out.println(url);
+                if(url == null || url.isEmpty()){
+                    System.out.println("URL is either not configured for anchor tag or it is empty");
+                    continue;
+                }
+
+                if(!url.startsWith(webURL)){
+                    System.out.println("URL belongs to another domain, skipping it.");
+                    continue;
+                }
+
+                try {
+                    huc = (HttpURLConnection)(new URL(url).openConnection());
+                    huc.setRequestMethod("HEAD");
+                    huc.connect();
+                    respCode = huc.getResponseCode();
+                    if(respCode >= 400){
+                        System.out.println(url+" is a broken link");
+                    }
+                    else{
+                        System.out.println(url+" is a valid link");
+                    }
+
+                } catch (MalformedURLException e) {
+// TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+// TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
 
 
+        }
 
 
+    public static void sendmail() {
+        String ActualTitle=driver.getTitle();
+        Log.info("Actual title:" +ActualTitle);
+        String ExceptedTitle = "Inbox - ouchdemo1@gmail.com - Gmail";
+        ExtentTestManager.reporterLog("Expected Title:" + ExceptedTitle);
+        ExtentTestManager.reporterLog("Actual Title:" +ActualTitle);
+        Log.info("Title verified");
+        ExtentTestManager.reporterLog("Step 1 Pass");
+        SeleniumCommon.switchtowindow();
+        driver.findElement(By.xpath("//div[@class = 'T-I T-I-KE L3']")).click();
+        Log.info("Click on Compose button");
+        //SeleniumCommon.switchtodifferenttab(0);
+       /* String ActualTitle1 = driver.getTitle();
+        ExtentTestManager.reporterLog("ActualTitle"+ActualTitle1);
+        String ExceptedTitle1 = "Inbox - ouchdemo1@gmail.com - Gmail";
+        ExtentTestManager.reporterLog("Expected Title:"+ExceptedTitle1);
+        if (ActualTitle1.equals(ExceptedTitle1)) {
+            Log.info("Open New mail");
+            ExtentTestManager.reporterLog("New mail");
+        } else {
+            // Assert.fail();
+            ExtentTestManager.reporterLog("No New mail");
+            Log.info("No new Email");
+        }*/
+        SeleniumCommon.waitForSecond(5);
+        WebElement E1=driver.findElement(By.xpath("//textarea[@name=\"to\"]"));
+        SeleniumCommon.waitForSecond(2);
+        E1.sendKeys("trunal.thakre@gmail.com");
+        SeleniumCommon.waitForSecond(2);
+        E1.sendKeys(Keys.ENTER);
+
+        Log.info("Entered Receiver mail ID trunal.thakre@gmail.com");
+        SeleniumCommon.waitForSecond(10);
+        /*WebElement E1 = driver.findElement(By.xpath("//div[@class = 'fX aiL']"));
+        SeleniumCommon.waitForWebElement(E1);
+        E1.sendKeys("trunal.thakre@gmail.com");*/
+
+        ExtentTestManager.reporterLog("Receiver mailid");
+        Log.info("Enter Subject Testmail");
+        //driver.findElement(By.xpath("//div[@id = ':9']")).sendKeys("TestMail");
+        driver.findElement(By.xpath("//input[@name=\"subjectbox\"]")).sendKeys("TestMail");
+        ExtentTestManager.reporterLog("Subject TestMail");
+        Log.info("Descrition send");
+        SeleniumCommon.waitForSecond(5);
+       // driver.findElement(By.xpath("//div[@id = ':aq']")).sendKeys("Testing mail");
+        driver.findElement(By.xpath("//div[@class=\"Am Al editable LW-avf tS-tW\"]")).sendKeys("Testing mail");
+        SeleniumCommon.waitForSecond(2);
+        ExtentTestManager.reporterLog("Description content");
+        Log.info("Click on Send Buttom");
+        //driver.findElement(By.xpath("//div[@id = ':9a']")).click();
+        driver.findElement(By.xpath("//div[@aria-label=\"Send \u202A(Ctrl-Enter)\u202C\"]")).click();
+
+        ExtentTestManager.reporterLog("Mail sent");
+
+    }
 }

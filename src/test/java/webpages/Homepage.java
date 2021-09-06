@@ -16,10 +16,11 @@ import java.util.ArrayList;
 public class Homepage extends SeleniumCommon {
 
     public static void verifyUser() {
+        //driver.findElement(By.xpath("hgfhgfhgh"));
 
         String ActualTitle=driver.getTitle();
         Log.info("Actual title:" +ActualTitle);
-        String ExceptedTitle = "Inbox (1) - ghatagepoonam5@gmail.com - Gmail";
+        String ExceptedTitle = "Inbox (2) - ouchdemo1.com - Gmail";
         ExtentTestManager.reporterLog("Expected Title:" + ExceptedTitle);
         ExtentTestManager.reporterLog("Actual Title:" +ActualTitle);
 
@@ -39,10 +40,10 @@ public class Homepage extends SeleniumCommon {
 
     public static void searchByID() throws AWTException {
         WebElement w1= driver.findElement(By.xpath("//input[@placeholder=\"Search mail\"]"));
-        w1.sendKeys("poonamghatage21@gmail.com");
+        w1.sendKeys("trunal.thakre@gmail.com");
         w1.sendKeys(Keys.ENTER);
-        ExtentTestManager.reporterLog("Entered EmailId For search: poonamghatage21@gmail.com");
-        Log.info("Searched by Id poonamghatage21@gmail.com");
+        ExtentTestManager.reporterLog("Entered EmailId For search: trunal.thakre@gmail.com");
+        Log.info("Searched by Id trunal.thakare@gmail.com");
         ExtentTestManager.reporterLog("Clicked On Enter");
     }
 

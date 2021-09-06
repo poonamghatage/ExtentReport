@@ -303,6 +303,9 @@ public class SeleniumCommon {
     public static void waitForWebElement(WebElement element){
         WebDriverWait w = new WebDriverWait(driver,30);
         w.until(ExpectedConditions.visibilityOf(element));
+        Log.info("Element Visible");
+        w.until(ExpectedConditions.elementToBeClickable(element));
+        Log.info("Element Clickable");
     }
 
     //MouseHoverAction

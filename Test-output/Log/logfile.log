@@ -1,35 +1,41 @@
-03 Jul 2021 21:41:11 INFO   [Log] - Logger invoked
-03 Jul 2021 21:41:11 INFO   [Log] - Chrome invoked
-03 Jul 2021 21:41:14 INFO   [Log] - Chrome browser instantiated
-03 Jul 2021 21:41:15 INFO   [SeleniumCommon] - Implicit wait applied on the driver for 30 seconds
-03 Jul 2021 21:41:21 INFO   [Log] - Web application launched: https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1%3Cmpl%3Ddefault%3Cmplcache%3D2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin
-03 Jul 2021 21:41:21 INFO   [Log] - Current Page Title: Gmail
-03 Jul 2021 21:41:21 INFO   [Log] - Current Title Matches with Expected Title.
-03 Jul 2021 21:41:21 INFO   [Log] - Username: ghatagepoonam5@gmail.com
-03 Jul 2021 21:41:21 INFO   [Log] - Password: Poonam@rs5
-03 Jul 2021 21:41:21 INFO   [Log] - Locator Type:- xpath Locator Value:-//input[@id='identifierId']
-03 Jul 2021 21:41:21 INFO   [Log] - Locator: By.xpath: //input[@id='identifierId']
-03 Jul 2021 21:41:21 INFO   [SeleniumCommon] - Page Load Status:complete
-03 Jul 2021 21:41:21 INFO   [Log] - Element found:-By.xpath: //input[@id='identifierId']
-03 Jul 2021 21:41:21 INFO   [SeleniumCommon] - Time:0 seconds
-03 Jul 2021 21:41:26 INFO   [Log] - Locator Type:- xpath Locator Value:-//*[@id="identifierNext"]
-03 Jul 2021 21:41:26 INFO   [Log] - Locator: By.xpath: //*[@id="identifierNext"]
-03 Jul 2021 21:41:26 INFO   [SeleniumCommon] - Page Load Status:complete
-03 Jul 2021 21:41:27 INFO   [Log] - Element found:-By.xpath: //*[@id="identifierNext"]
-03 Jul 2021 21:41:27 INFO   [SeleniumCommon] - Time:1 seconds
-03 Jul 2021 21:41:27 INFO   [Log] - Clicking on next Button
-03 Jul 2021 21:41:32 INFO   [Log] - Locator Type:- xpath Locator Value:-//input[@type='password']
-03 Jul 2021 21:41:32 INFO   [Log] - Locator: By.xpath: //input[@type='password']
-03 Jul 2021 21:41:32 INFO   [SeleniumCommon] - Page Load Status:complete
-03 Jul 2021 21:41:32 INFO   [Log] - Element found:-By.xpath: //input[@type='password']
-03 Jul 2021 21:41:32 INFO   [SeleniumCommon] - Time:0 seconds
-03 Jul 2021 21:41:32 INFO   [Log] - Entered username and password
-03 Jul 2021 21:41:32 INFO   [Log] - Locator Type:- xpath Locator Value:-//*[@id="passwordNext"]
-03 Jul 2021 21:41:32 INFO   [Log] - Locator: By.xpath: //*[@id="passwordNext"]
-03 Jul 2021 21:41:32 INFO   [SeleniumCommon] - Page Load Status:complete
-03 Jul 2021 21:41:32 INFO   [Log] - Element found:-By.xpath: //*[@id="passwordNext"]
-03 Jul 2021 21:41:32 INFO   [SeleniumCommon] - Time:0 seconds
-03 Jul 2021 21:41:32 INFO   [Log] - Clicking on next Button
-03 Jul 2021 21:41:51 INFO   [Log] - Clicked on Google apps
-03 Jul 2021 21:41:54 INFO   [Log] - Switched to frame
-03 Jul 2021 21:41:59 INFO   [Log] - Scrolled down
+06 Sep 2021 15:10:45 INFO   [Log] - Logger invoked
+06 Sep 2021 15:10:45 INFO   [Log] - Chrome invoked
+06 Sep 2021 15:10:48 INFO   [Log] - Chrome browser instantiated
+06 Sep 2021 15:10:48 INFO   [SeleniumCommon] - Implicit wait applied on the driver for 30 seconds
+06 Sep 2021 15:10:51 INFO   [Log] - Web application launched: https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1%3Cmpl%3Ddefault%3Cmplcache%3D2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin
+06 Sep 2021 15:10:51 INFO   [Log] - Current Page Title: Gmail
+06 Sep 2021 15:10:51 INFO   [Log] - Current Title Matches with Expected Title.
+06 Sep 2021 15:10:51 INFO   [Log] - Username: ouchdemo1@gmail.com
+06 Sep 2021 15:10:51 INFO   [Log] - Password: Test@1234
+06 Sep 2021 15:10:51 INFO   [Log] - Locator Type:- xpath Locator Value:-//input[@id='identifierId']
+06 Sep 2021 15:10:51 INFO   [Log] - Locator: By.xpath: //input[@id='identifierId']
+06 Sep 2021 15:10:51 INFO   [SeleniumCommon] - Page Load Status:complete
+06 Sep 2021 15:10:51 INFO   [Log] - Element found:-By.xpath: //input[@id='identifierId']
+06 Sep 2021 15:10:51 INFO   [SeleniumCommon] - Time:0 seconds
+06 Sep 2021 15:10:56 INFO   [Log] - Locator Type:- xpath Locator Value:-//*[@id="identifierNext"]
+06 Sep 2021 15:10:56 INFO   [Log] - Locator: By.xpath: //*[@id="identifierNext"]
+06 Sep 2021 15:10:56 INFO   [SeleniumCommon] - Page Load Status:complete
+06 Sep 2021 15:10:56 INFO   [Log] - Element found:-By.xpath: //*[@id="identifierNext"]
+06 Sep 2021 15:10:56 INFO   [SeleniumCommon] - Time:0 seconds
+06 Sep 2021 15:10:57 INFO   [Log] - Clicking on next Button
+06 Sep 2021 15:11:02 INFO   [Log] - Locator Type:- xpath Locator Value:-//input[@type='password']
+06 Sep 2021 15:11:02 INFO   [Log] - Locator: By.xpath: //input[@type='password']
+06 Sep 2021 15:11:02 INFO   [SeleniumCommon] - Page Load Status:complete
+06 Sep 2021 15:11:02 INFO   [Log] - Element found:-By.xpath: //input[@type='password']
+06 Sep 2021 15:11:02 INFO   [SeleniumCommon] - Time:0 seconds
+06 Sep 2021 15:11:02 INFO   [Log] - Entered username and password
+06 Sep 2021 15:11:02 INFO   [Log] - Locator Type:- xpath Locator Value:-//*[@id="passwordNext"]
+06 Sep 2021 15:11:02 INFO   [Log] - Locator: By.xpath: //*[@id="passwordNext"]
+06 Sep 2021 15:11:02 INFO   [SeleniumCommon] - Page Load Status:complete
+06 Sep 2021 15:11:02 INFO   [Log] - Element found:-By.xpath: //*[@id="passwordNext"]
+06 Sep 2021 15:11:02 INFO   [SeleniumCommon] - Time:0 seconds
+06 Sep 2021 15:11:02 INFO   [Log] - Clicking on next Button
+06 Sep 2021 15:11:09 INFO   [Log] - Actual title:Inbox - ouchdemo1@gmail.com - Gmail
+06 Sep 2021 15:11:09 INFO   [Log] - Title verified
+06 Sep 2021 15:11:14 INFO   [Log] - Switched to window
+06 Sep 2021 15:11:14 INFO   [Log] - Return:CDwindow-70C4EAE70959436086E29EB255DA94C8
+06 Sep 2021 15:11:14 INFO   [Log] - Click on Compose button
+06 Sep 2021 15:11:23 INFO   [Log] - Entered Receiver mail ID trunal.thakre@gmail.com
+06 Sep 2021 15:11:33 INFO   [Log] - Enter Subject Testmail
+06 Sep 2021 15:11:34 INFO   [Log] - Descrition send
+06 Sep 2021 15:11:41 INFO   [Log] - Click on Send Buttom

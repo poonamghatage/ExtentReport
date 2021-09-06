@@ -14,9 +14,8 @@ public class Drive_Test {
     }
     
     @Test(priority = 2,description = "Verified user can able to translate")
-    public static void Testcase2_Translate(){
+    public static void Testcase2_Translate() throws IOException {
         Drive.translate();
-
     }
 
 

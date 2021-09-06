@@ -33,9 +33,20 @@ public class LoginTest {
         SeleniumCommon.waitForSecond(5);
         System.out.println("First Test Case Completed");
 
+    }
 
+    @Test(priority = 0,description = "broken links",enabled = false)
+    public void brokenlinks() throws IOException {
+        Loginpage.BrokenLinks() ;
 
     }
+
+    @Test(priority = 2,description = "broken links")
+    public void Sendmail(){
+        Loginpage.sendmail();
+
+    }
+
 
 }
 
