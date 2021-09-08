@@ -41,6 +41,7 @@ public class Form extends SeleniumCommon{
         driver.findElement(By.xpath("//input[@type=\"text\"]")).sendKeys("89757210787656789");
         SeleniumCommon.waitForSecond(2);
         driver.findElement(By.xpath("//span[contains(text(),\"Submit\")]")).click();
+        driver.close();
 
     }
 

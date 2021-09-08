@@ -79,17 +79,15 @@ public class Homepage1 extends SeleniumCommon {
 
         //switchtoframe by index
         SeleniumCommon.switchtoframebyindex(1);
-        SeleniumCommon.waitForSecond(5);
+        SeleniumCommon.waitForSecond(7);
 
-       // WebDriverWait wait = new WebDriverWait(driver, 10);
-        //WebElement chat = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href=\\\"https://chat.google.com/?authuser=4\\\"]")));
-        //chat.click();
 
-        //driver.findElement(By.xpath("//ul/li[9]")).click();
-       // driver.findElement(By.xpath("([//ul/li[9])[1]")).click();
-        driver.findElement(By.xpath("//div[@class=\"qWuU9c\"] //*[contains(text(),'Chat')]")).click();
-        //driver.findElement(By.xpath("//a[@href=\"https://chat.google.com/?authuser=4\"]")).click();
-        //driver.findElement(By.xpath("//div[@class=\"EHzcec eejsDc\"] //*[contains(text(),'Chat')]")).click();
+
+         //Not working: driver.findElement(By.xpath("//ul/li[9]")).click();
+        //not working:driver.findElement(By.xpath("(//ul/li[9])[1]")).click();
+        //driver.findElement(By.xpath("//div[@class=\"qWuU9c\"] //*[contains(text(),'Chat')]")).click();
+        // Not working:driver.findElement(By.xpath("//a[@href=\"https://chat.google.com/?authuser=4\"]")).click();
+      driver.findElement(By.xpath("//div[@class=\"EHzcec eejsDc\"] //*[contains(text(),'Chat')]")).click();
 
 
 

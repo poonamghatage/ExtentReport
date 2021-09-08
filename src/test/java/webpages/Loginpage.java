@@ -176,19 +176,7 @@ public class Loginpage extends SeleniumCommon {
         SeleniumCommon.switchtowindow();
         driver.findElement(By.xpath("//div[@class = 'T-I T-I-KE L3']")).click();
         Log.info("Click on Compose button");
-        //SeleniumCommon.switchtodifferenttab(0);
-       /* String ActualTitle1 = driver.getTitle();
-        ExtentTestManager.reporterLog("ActualTitle"+ActualTitle1);
-        String ExceptedTitle1 = "Inbox - ouchdemo1@gmail.com - Gmail";
-        ExtentTestManager.reporterLog("Expected Title:"+ExceptedTitle1);
-        if (ActualTitle1.equals(ExceptedTitle1)) {
-            Log.info("Open New mail");
-            ExtentTestManager.reporterLog("New mail");
-        } else {
-            // Assert.fail();
-            ExtentTestManager.reporterLog("No New mail");
-            Log.info("No new Email");
-        }*/
+
         SeleniumCommon.waitForSecond(5);
         WebElement E1=driver.findElement(By.xpath("//textarea[@name=\"to\"]"));
         SeleniumCommon.waitForSecond(2);
@@ -198,13 +186,10 @@ public class Loginpage extends SeleniumCommon {
 
         Log.info("Entered Receiver mail ID trunal.thakre@gmail.com");
         SeleniumCommon.waitForSecond(10);
-        /*WebElement E1 = driver.findElement(By.xpath("//div[@class = 'fX aiL']"));
-        SeleniumCommon.waitForWebElement(E1);
-        E1.sendKeys("trunal.thakre@gmail.com");*/
 
         ExtentTestManager.reporterLog("Receiver mailid");
         Log.info("Enter Subject Testmail");
-        //driver.findElement(By.xpath("//div[@id = ':9']")).sendKeys("TestMail");
+
         driver.findElement(By.xpath("//input[@name=\"subjectbox\"]")).sendKeys("TestMail");
         ExtentTestManager.reporterLog("Subject TestMail");
         Log.info("Descrition send");

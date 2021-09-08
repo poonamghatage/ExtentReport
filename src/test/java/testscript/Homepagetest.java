@@ -39,7 +39,7 @@ public class Homepagetest {
 
     @Test(priority = 6,description = "verified dropdown")
     public void Homepage_Testcase6() throws AWTException {
-   Homepage.verifydropdown();
+     Homepage.verifydropdown();
     }
 
 

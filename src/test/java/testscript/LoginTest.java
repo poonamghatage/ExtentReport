@@ -41,7 +41,7 @@ public class LoginTest {
 
     }
 
-    @Test(priority = 2,description = "broken links")
+    @Test(priority = 2,description = "send mail",enabled = false)
     public void Sendmail(){
         Loginpage.sendmail();
 

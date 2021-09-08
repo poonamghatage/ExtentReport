@@ -20,7 +20,7 @@ public class Homepage extends SeleniumCommon {
 
         String ActualTitle=driver.getTitle();
         Log.info("Actual title:" +ActualTitle);
-        String ExceptedTitle = "Inbox (2) - ouchdemo1.com - Gmail";
+        String ExceptedTitle = "Inbox - ouchdemo1@gmail.com - Gmail";
         ExtentTestManager.reporterLog("Expected Title:" + ExceptedTitle);
         ExtentTestManager.reporterLog("Actual Title:" +ActualTitle);
 
@@ -76,7 +76,7 @@ public class Homepage extends SeleniumCommon {
        // driver.switchTo().window(allTabs.get(0));
         ExtentTestManager.reporterLog("Navigated to First Tab");
         SeleniumCommon.waitForSecond(2);
-        driver.findElement(By.xpath("//span[@class=\"nU n1\"] //*[contains(text(),'Inbox')]")).click();
+        driver.findElement(By.xpath("//a[@href=\"https://mail.google.com/mail/u/0/#inbox\"]")).click();
         ExtentTestManager.reporterLog("Clicked on Inbox");
 
     }
@@ -94,7 +94,7 @@ public class Homepage extends SeleniumCommon {
     }
 
     public static void veriftooltip() {
-        WebElement w1=driver.findElement(By.xpath("//span[@class=\"nU n1\"] //*[contains(text(),'Inbox')]"));//xpath=parent+space+child
+        WebElement w1=driver.findElement(By.xpath("//a[@href=\"https://mail.google.com/mail/u/0/#inbox\"]"));//xpath=parent+space+child
         SeleniumCommon.waitForSecond(5);
         String expected="Inbox";
         SeleniumCommon.tooltip(w1,expected);
