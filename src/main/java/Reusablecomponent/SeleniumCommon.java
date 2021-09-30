@@ -18,6 +18,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -692,5 +694,25 @@ public class SeleniumCommon {
         Log.info("Scrollled Down");
     }
 
+
+    public static void timerequiredtofindelement(String s2) throws IOException {
+
+        SeleniumCommon.launchBrowser();
+        SeleniumCommon.openWebSite();
+
+        //start time
+        Instant startTime=Instant.now();
+        System.out.println(startTime.toString());
+
+        driver.findElement(By.xpath(s2));
+
+        //end time
+        Instant endTime=Instant.now();
+        System.out.println(endTime.toString());
+
+        //Duration
+        Duration timeElapsed=Duration.between(startTime,endTime);
+        System.out.println("Time Taken:"+ timeElapsed.toMillis() + " mili seconds");
+    }
 
 }
